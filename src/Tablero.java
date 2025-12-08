@@ -4,7 +4,7 @@ public class Tablero {
         int[][] tablero = new int[filas][columnas];
         for (int i = 0; i < filas; i++)
             for (int j = 0; j < columnas; j++)
-                tablero[i][j] = -1; // inicializamos a -1
+                tablero[i][j] = -1;
         return tablero;
     }
 
@@ -12,19 +12,41 @@ public class Tablero {
         char[][] tablero = new char[filas][columnas];
         for (int i = 0; i < filas; i++)
             for (int j = 0; j < columnas; j++)
-                tablero[i][j] = '~'; // inicializamos a '~'
+                tablero[i][j] = '~';
         return tablero;
-    }
+               }
 
     public static void mostrarTableroDisparos(char[][] tableroDisparos) {
-
+        System.out.print("  ");
+        for (int c = 0; c < tableroDisparos[0].length; c++) System.out.print(c + " ");
+        System.out.println();
+        for (int f = 0; f < tableroDisparos.length; f++) {
+            System.out.print(f + " ");
+            for (int c = 0; c < tableroDisparos[0].length; c++) {
+                System.out.print(tableroDisparos[f][c] + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static void mostrarTableroConBarcos(int[][] tableroBarcos, char[][] tableroDisparosCPU) {
-
+        System.out.print("  ");
+        for (int c = 0; c < tableroBarcos[0].length; c++) System.out.print(c + " ");
+        System.out.println();
+        for (int f = 0; f < tableroBarcos.length; f++) {
+            System.out.print(f + " ");
+            for (int c = 0; c < tableroBarcos[0].length; c++) {
+                if (tableroDisparosCPU[f][c] == '~') {
+                    System.out.print((tableroBarcos[f][c] != -1 ? tableroBarcos[f][c] : '.') + " ");
+                } else {
+                    System.out.print(tableroDisparosCPU[f][c] + " ");
+                  }
+            }
+            System.out.println();
+                              }
     }
 
     public static boolean esCoordenadaValida(int fila, int columna, int filas, int columnas) {
         return fila >= 0 && fila < filas && columna >= 0 && columna < columnas;
-    }
+              }
 }

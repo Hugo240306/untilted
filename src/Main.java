@@ -23,5 +23,9 @@ public class Main {
 
         Barcos.colocarBarcosAleatorios(tableroBarcosJugador, tamanosBarcos);
         Barcos.colocarBarcosAleatorios(tableroBarcosCPU, tamanosBarcos);
-        }
+
+        Tablero.mostrarTableroConBarcos(tableroBarcosJugador, tableroDisparosCPU);
+
+        Tablero.mostrarTableroDisparos(tableroDisparosJugador);zc
+                }
 }
