@@ -13,18 +13,27 @@ public class Disparos {
             int[] tamanosBarco
     ) {
         int idBarco = tableroBarcos[fila][columna];
+
         if (idBarco == -1) {
             tableroDisparos[fila][columna] = 'A';
             return false;
-        } else {
-            impactosBarco[idBarco]++;
-            if (impactosBarco[idBarco] < tamanosBarco[idBarco]) {
-                tableroDisparos[fila][columna] = 'T';
-                return false;
-            } else {
-                tableroDisparos[fila][columna] = 'H';
-                return true;
+        }
+
+        impactosBarco[idBarco]++;
+
+        if (impactosBarco[idBarco] < tamanosBarco[idBarco]) {
+            tableroDisparos[fila][columna] = 'T';
+            return false;
+        }
+
+        for (int f = 0; f < tableroBarcos.length; f++) {
+            for (int c = 0; c < tableroBarcos[0].length; c++) {
+                if (tableroBarcos[f][c] == idBarco) {
+                    tableroDisparos[f][c] = 'H';
+                }
             }
         }
+
+        return true;
     }
 }
